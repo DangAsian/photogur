@@ -1,6 +1,8 @@
 class PicturesController < ApplicationController
   def index
     @pictures = Picture.all
+    @past_pictures = Picture.created_before(Time.now - 30.day)
+    @year_pictures = Picture.pictures_created_in_year(2000..2018)
   end
 
   def show
@@ -38,6 +40,7 @@ class PicturesController < ApplicationController
     @picture.title = params[:picture][:title]
     @picture.artist = params[:picture][:artist]
     @picture.url = params[:picture][:url]
+    @picture.created_at = params[:picture][:created_at]
 
 
     if @picture.save
@@ -47,7 +50,7 @@ class PicturesController < ApplicationController
     end
 
   end
-  
+
   def destroy
    @picture = Picture.find(params[:id])
    @picture.destroy

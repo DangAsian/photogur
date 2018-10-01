@@ -1,6 +1,29 @@
 <h1>Pictures</h1>
+<%=link_to 'Create a new picture', pictures_new_path%>
 
 <% @pictures.each do |picture| %>
+  <p><%= link_to "#{picture.title}", "/pictures/#{picture.id}/edit" %>, <%= picture.artist %></p>
+  <img src="<%= picture.url %>" alt="<%= picture.title %>">
+<% end %>
+
+<p>
+  ------------------------------------------------------------
+</p>
+
+<h2>These are pictures from the past</h2>
+<hr>
+<% @past_pictures.each do |picture| %>
+  <p><%= picture.title %>, <%= picture.artist %></p>
+  <img src="<%= picture.url %>" alt="<%= picture.title %>">
+<% end %>
+
+<p>
+  ------------------------------------------------------------
+</p>
+
+<h2>These are pictures different years</h2>
+
+<% @year_pictures.each do |picture| %>
   <p><%= picture.title %>, <%= picture.artist %></p>
   <img src="<%= picture.url %>" alt="<%= picture.title %>">
 <% end %>
