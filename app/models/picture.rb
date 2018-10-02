@@ -10,6 +10,11 @@ def self.pictures_created_in_year(time)
   # Picture.where(created_at: (range_of_time.beginning_of_year)..range_of_time.end_of_year))
 end
 
-validate :artist
-
+validates :artist, presence: true
+validates :title, length: {minimum: 3,
+                           maximum: 20
+                          }
+validates :url, presence: true
+validates :url, uniqueness: true
+# validates :url, uniqueness: true
 end
