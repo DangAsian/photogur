@@ -2,7 +2,7 @@ class PicturesController < ApplicationController
   def index
     @pictures = Picture.all
     @past_pictures = Picture.created_before(Time.now - 30.day)
-    @year_pictures = Picture.pictures_created_in_year(2000..2018)
+    # @year_pictures = Picture.pictures_created_in_year(2000..2018)
   end
 
   def show

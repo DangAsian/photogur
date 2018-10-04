@@ -20,10 +20,3 @@
 <p>
   ------------------------------------------------------------
 </p>
-
-<h2>These are pictures different years</h2>
-
-<% @year_pictures.each do |picture| %>
-  <p><%= picture.title %>, <%= picture.artist %></p>
-  <img src="<%= picture.url %>" alt="<%= picture.title %>">
-<% end %>
