@@ -1,5 +1,5 @@
 class Picture < ApplicationRecord
-
+belongs_to :user
 def self.created_before(time)
   Picture.where("created_at < ?", time)
 # Picture.where(created_at: (Time.now.midnight - 30.day).. Time.now.midnight)
